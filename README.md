@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/petruki/dblite-library.svg)](https://jitpack.io/#petruki/dblite-library)
+
 ### About
 
 DbLite is a simple Android library that allows you to interact with SQLite DB.
@@ -26,7 +28,7 @@ allprojects {
 
 ```
 dependencies {
-	implementation 'com.github.petruki:dblite:1.0-rc'
+	implementation 'com.github.petruki:dblite-library:0.1.1-rc'
 }
 ``` 
 
