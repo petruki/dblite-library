@@ -1,0 +1,2 @@
+include ':dblite-playground', ':dblite'
+rootProject.name = "dblite"
