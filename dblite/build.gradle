@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'maven-publish'
-    id 'maven'
+    id 'com.github.dcendents.android-maven'
 }
 
 group = 'com.github.petruki'
@@ -30,11 +30,5 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
-}
-
-uploadArchives {
-    repositories {
-        mavenLocal()
     }
 }
