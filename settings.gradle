@@ -1,2 +1,2 @@
-include ':dblite-playground', ':dblite'
+include ':dblite'
 rootProject.name = "dblite-library"
