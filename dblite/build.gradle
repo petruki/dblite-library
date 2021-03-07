@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.petruki'
-version = '1.0-rc'
+version = '0.1.0-rc'
 
 android {
     compileSdkVersion 30
