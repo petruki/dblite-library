@@ -1,4 +1,4 @@
-package com.github.petruki.model;
+package com.github.petruki.playground.model;
 
 public class Booking {
 

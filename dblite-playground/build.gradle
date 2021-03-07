@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.github.petruki"
+        applicationId "com.github.petruki.playgorund"
         minSdkVersion 25
         targetSdkVersion 30
         versionCode 1

@@ -1,4 +1,4 @@
-package com.github.petruki;
+package com.github.petruki.playground;
 
 import android.content.Context;
 

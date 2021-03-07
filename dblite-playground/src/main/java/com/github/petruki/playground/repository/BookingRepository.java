@@ -1,11 +1,11 @@
-package com.github.petruki.repository;
+package com.github.petruki.playground.repository;
 
 import android.content.Context;
 
 import com.github.petruki.dblite.AbstractRepository;
 import com.github.petruki.dblite.wrapper.EntityResolver;
-import com.github.petruki.model.Booking;
-import com.github.petruki.model.User;
+import com.github.petruki.playground.model.Booking;
+import com.github.petruki.playground.model.User;
 
 import java.util.List;
 

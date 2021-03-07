@@ -1,12 +1,12 @@
-package com.github.petruki.repository;
+package com.github.petruki.playground.repository;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.github.petruki.dblite.wrapper.DbLiteWrapper;
 import com.github.petruki.dblite.wrapper.EntityWrapper;
-import com.github.petruki.model.Plan;
-import com.github.petruki.model.User;
+import com.github.petruki.playground.model.Plan;
+import com.github.petruki.playground.model.User;
 import com.google.gson.Gson;
 
 @DbLiteWrapper(entityName = "USER", columns = { "id", "name", "email", "plan" })

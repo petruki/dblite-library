@@ -1,4 +1,4 @@
-package com.github.petruki;
+package com.github.petruki.playground;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.github.petruki.repository.BookingRepository;
-import com.github.petruki.repository.UserRepository;
-import com.github.petruki.model.Booking;
-import com.github.petruki.model.Plan;
-import com.github.petruki.model.User;
+import com.github.petruki.playground.repository.BookingRepository;
+import com.github.petruki.playground.repository.UserRepository;
+import com.github.petruki.playground.model.Booking;
+import com.github.petruki.playground.model.Plan;
+import com.github.petruki.playground.model.User;
 
 import java.util.List;
 

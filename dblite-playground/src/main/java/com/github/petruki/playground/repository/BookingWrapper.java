@@ -1,11 +1,11 @@
-package com.github.petruki.repository;
+package com.github.petruki.playground.repository;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.github.petruki.dblite.wrapper.DbLiteWrapper;
 import com.github.petruki.dblite.wrapper.EntityWrapper;
-import com.github.petruki.model.Booking;
+import com.github.petruki.playground.model.Booking;
 
 @DbLiteWrapper(entityName = "BOOKING", columns = { "id", "contactId" })
 public class BookingWrapper implements EntityWrapper<Booking> {
