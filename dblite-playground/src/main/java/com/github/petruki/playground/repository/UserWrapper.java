@@ -7,20 +7,18 @@ import com.github.petruki.dblite.wrapper.DbLiteWrapper;
 import com.github.petruki.dblite.wrapper.EntityWrapper;
 import com.github.petruki.playground.model.Plan;
 import com.github.petruki.playground.model.User;
-import com.google.gson.Gson;
 
-@DbLiteWrapper(entityName = "USER", columns = { "id", "name", "email", "plan" })
+@DbLiteWrapper(entityName = "USER", columns = { "id", "name", "email", "plan", "age INT" })
 public class UserWrapper implements EntityWrapper<User> {
 
     @Override
     public User unWrap(Cursor cursor) {
         User user = new User();
-        user.setId(cursor.getString(cursor.getColumnIndex("id")));
-        user.setName(cursor.getString(cursor.getColumnIndex("name")));
-        user.setEmail(cursor.getString(cursor.getColumnIndex("email")));
-
-        Gson gson = new Gson();
-        user.setPlan(gson.fromJson(cursor.getString(cursor.getColumnIndex("plan")), Plan.class));
+        user.setId(getString(cursor, "id"));
+        user.setName(getString(cursor, "name"));
+        user.setEmail(getString(cursor, "email"));
+        user.setAge(getInt(cursor, "age"));
+        user.setPlan(getJson(cursor, "plan", Plan.class));
         return user;
     }
 
@@ -30,9 +28,8 @@ public class UserWrapper implements EntityWrapper<User> {
         values.put("id", user.getId());
         values.put("name", user.getName());
         values.put("email", user.getEmail());
-
-        Gson gson = new Gson();
-        values.put("plan", gson.toJson(user.getPlan()));
+        values.put("age", user.getAge());
+        values.put("plan", toJson(user.getPlan()));
         return values;
     }
 

@@ -13,8 +13,8 @@ public class BookingWrapper implements EntityWrapper<Booking> {
     @Override
     public Booking unWrap(Cursor cursor) {
         Booking booking = new Booking();
-        booking.setId(cursor.getString(cursor.getColumnIndex("id")));
-        booking.setContactId(cursor.getString(cursor.getColumnIndex("contactId")));
+        booking.setId(getString(cursor, "id"));
+        booking.setContactId(getString(cursor, "contactId"));
         return booking;
     }
 

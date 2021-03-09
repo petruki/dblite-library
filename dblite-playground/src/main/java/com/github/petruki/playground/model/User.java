@@ -8,6 +8,7 @@ public class User {
     private String name;
     private String email;
     private Plan plan;
+    private int age;
 
     public String getId() {
         return _id;
@@ -41,6 +42,14 @@ public class User {
         this.plan = plan;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +65,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", plan='" + plan + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

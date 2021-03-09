@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.petruki'
-version = '0.1.1-rc'
+version = '0.1.2-rc'
 
 android {
     compileSdkVersion 30
@@ -37,4 +37,8 @@ uploadArchives {
     repositories {
         mavenLocal()
     }
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.8.6'
 }

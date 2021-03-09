@@ -14,6 +14,8 @@ import java.util.List;
 
 /**
  * Class responsible for defining basic CRUD operations
+ *
+ * @author Roger Floriano (petruki)
  */
 public abstract class AbstractRepository<T> {
 
@@ -30,8 +32,9 @@ public abstract class AbstractRepository<T> {
     }
 
     private String getTable() {
-        DbLiteWrapper dbWrapperAnnotation = wrapper.getClass().getAnnotation(DbLiteWrapper.class);
-        return dbWrapperAnnotation.entityName();
+        DbLiteWrapper ann = wrapper.getClass().getAnnotation(DbLiteWrapper.class);
+        assert ann != null;
+        return ann.entityName();
     }
 
     public void save(T entity) throws Exception {
@@ -44,11 +47,20 @@ public abstract class AbstractRepository<T> {
         }
     }
 
+    public void saveAll(List<T> entities) throws Exception {
+        for (T entity : entities)
+            save(entity);
+    }
+
     public void update(String id, T entity) throws Exception {
+        update("id = ?", new String[] { id }, entity);
+    }
+
+    public void update(String whereClause, String[] values, T entity) throws Exception {
         SQLiteDatabase dbWriter = DbLiteFactory.getInstance(context, dbFactoryClass).getDbWriter();
         try {
             dbWriter.update(getTable(), wrapper.wrap(entity),
-                    "id = ?", new String[]{ id });
+                    whereClause, values);
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e);
             throw new Exception("Failed to update", e);
@@ -56,6 +68,10 @@ public abstract class AbstractRepository<T> {
     }
 
     public List<T> findAll() throws Exception {
+        return findAll(null);
+    }
+
+    public List<T> findAll(EntityResolver<T> resolver) throws Exception {
         SQLiteDatabase dbReader = DbLiteFactory.getInstance(context, dbFactoryClass).getDbReader();
         final String sql = String.format("SELECT * FROM %s",  getTable());
 
@@ -63,7 +79,10 @@ public abstract class AbstractRepository<T> {
         try (Cursor cursor = dbReader.rawQuery(sql, null)) {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                listEntity.add(wrapper.unWrap(cursor));
+                if (resolver != null)
+                    listEntity.add(resolver.resolve(wrapper.unWrap(cursor)));
+                else
+                    listEntity.add(wrapper.unWrap(cursor));
                 cursor.moveToNext();
             }
         } catch (Exception e) {

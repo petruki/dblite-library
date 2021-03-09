@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         user.setEmail("mail@mail.com");
         user.setName("My Name");
         user.setPlan(plan);
+        user.setAge(35);
 
         Booking booking = new Booking();
         booking.setId("bookingId");
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             User user = userRepository.findById("userId");
             List<Booking> userBooking = userRepository.findUserBooking(user.getId());
-
             logOnScreen.setText(userBooking.toString());
         } catch (Exception e) {
             Log.e(TAG, e.getMessage(), e);

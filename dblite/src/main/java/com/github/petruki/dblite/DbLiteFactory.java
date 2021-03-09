@@ -7,6 +7,11 @@ import android.text.TextUtils;
 
 import com.github.petruki.dblite.wrapper.DbLiteWrapper;
 
+/**
+ * Define SQLite resource access such as writer and reader
+ *
+ * @author Roger Floriano (petruki)
+ */
 public class DbLiteFactory extends SQLiteOpenHelper {
 
     private final Class<?>[] DATABASE_WRAPPERS;
