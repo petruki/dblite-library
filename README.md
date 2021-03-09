@@ -56,9 +56,9 @@ public class UserWrapper implements EntityWrapper<User> {
     @Override
     public User unWrap(Cursor cursor) {
         User user = new User();
-        user.setId(cursor.getString(cursor.getColumnIndex("id")));
-        user.setName(cursor.getString(cursor.getColumnIndex("name")));
-        user.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+        user.setId(getString(cursor, "id"));
+        user.setName(getString(cursor, "name"));
+        user.setEmail(getString(cursor, "email"));
         return user;
     }
 
